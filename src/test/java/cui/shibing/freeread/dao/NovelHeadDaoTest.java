@@ -14,7 +14,7 @@ import cui.shibing.freeread.model.NovelHead;
 @Rollback(value= true)
 public class NovelHeadDaoTest {
 	@Autowired
-	private NovelHeadDao novelHeadMapper;
+	private NovelHeadDao novelHeadDao;
 	@Test
 	public void testInsertNovelHead() {
 		NovelHead novelHead = new NovelHead();
