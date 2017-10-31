@@ -1,22 +1,80 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cui.shibing.freeread.dao.NovelContentDao">
-	<resultMap id="BaseResultMap" type="cui.shibing.freeread.model.NovelContent">
-		<result column="novel_content_id" property="novelContentId"
-			jdbcType="INTEGER" />
-		<result column="novel_id" property="novelId" jdbcType="INTEGER" />
-		<result column="novel_chapter" property="novelChapter"
-			jdbcType="INTEGER" />
-		<result column="novel_chapter_path" property="novelChapterPath"
-			jdbcType="VARCHAR" />
-	</resultMap>
-	<insert id="insert" parameterType="cui.shibing.freeread.model.NovelContent">
-		insert into novel_content
-		(novel_content_id, novel_id, novel_chapter,
-		novel_chapter_path)
-		values
-		(#{novelContentId,jdbcType=INTEGER}, #{novelId,jdbcType=INTEGER},
-		#{novelChapter,jdbcType=INTEGER},
-		#{novelChapterPath,jdbcType=VARCHAR})
-	</insert>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cui.shibing.freeread.dao.NovelContentMapper">
+  <resultMap id="BaseResultMap" type="cui.shibing.freeread.model.NovelContent">
+    <id column="novel_content_id" jdbcType="INTEGER" property="novelContentId" />
+    <result column="novel_id" jdbcType="INTEGER" property="novelId" />
+    <result column="novel_chapter" jdbcType="INTEGER" property="novelChapter" />
+    <result column="novel_chapter_path" jdbcType="VARCHAR" property="novelChapterPath" />
+  </resultMap>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    novel_content_id, novel_id, novel_chapter, novel_chapter_path
+    from novel_content
+    where novel_content_id = #{novelContentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from novel_content
+    where novel_content_id = #{novelContentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cui.shibing.freeread.model.NovelContent">
+    insert into novel_content (novel_content_id, novel_id, novel_chapter, 
+      novel_chapter_path)
+    values (#{novelContentId,jdbcType=INTEGER}, #{novelId,jdbcType=INTEGER}, #{novelChapter,jdbcType=INTEGER}, 
+      #{novelChapterPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cui.shibing.freeread.model.NovelContent">
+    insert into novel_content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="novelContentId != null">
+        novel_content_id,
+      </if>
+      <if test="novelId != null">
+        novel_id,
+      </if>
+      <if test="novelChapter != null">
+        novel_chapter,
+      </if>
+      <if test="novelChapterPath != null">
+        novel_chapter_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="novelContentId != null">
+        #{novelContentId,jdbcType=INTEGER},
+      </if>
+      <if test="novelId != null">
+        #{novelId,jdbcType=INTEGER},
+      </if>
+      <if test="novelChapter != null">
+        #{novelChapter,jdbcType=INTEGER},
+      </if>
+      <if test="novelChapterPath != null">
+        #{novelChapterPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cui.shibing.freeread.model.NovelContent">
+    update novel_content
+    <set>
+      <if test="novelId != null">
+        novel_id = #{novelId,jdbcType=INTEGER},
+      </if>
+      <if test="novelChapter != null">
+        novel_chapter = #{novelChapter,jdbcType=INTEGER},
+      </if>
+      <if test="novelChapterPath != null">
+        novel_chapter_path = #{novelChapterPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where novel_content_id = #{novelContentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cui.shibing.freeread.model.NovelContent">
+    update novel_content
+    set novel_id = #{novelId,jdbcType=INTEGER},
+      novel_chapter = #{novelChapter,jdbcType=INTEGER},
+      novel_chapter_path = #{novelChapterPath,jdbcType=VARCHAR}
+    where novel_content_id = #{novelContentId,jdbcType=INTEGER}
+  </update>
 </mapper>

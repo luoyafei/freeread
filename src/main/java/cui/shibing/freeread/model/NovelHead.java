@@ -5,6 +5,8 @@ public class NovelHead {
 
     private String novelName;
 
+    private String novelPicture;
+
     private String novelContentTableName;
 
     private Integer novelContentId;
@@ -35,6 +37,14 @@ public class NovelHead {
 
     public void setNovelName(String novelName) {
         this.novelName = novelName;
+    }
+
+    public String getNovelPicture() {
+        return novelPicture;
+    }
+
+    public void setNovelPicture(String novelPicture) {
+        this.novelPicture = novelPicture;
     }
 
     public String getNovelContentTableName() {
