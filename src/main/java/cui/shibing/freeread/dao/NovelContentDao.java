@@ -2,8 +2,6 @@ package cui.shibing.freeread.dao;
 
 import cui.shibing.freeread.model.NovelContent;
 
-public interface NovelContentMapper {
+public interface NovelContentDao {
     int insert(NovelContent record);
-
-    int insertSelective(NovelContent record);
 }

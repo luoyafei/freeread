@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cui.shibing.freeread.dao.NovelContentMapper">
+<mapper namespace="cui.shibing.freeread.dao.NovelContentDao">
 	<resultMap id="BaseResultMap" type="cui.shibing.freeread.model.NovelContent">
 		<result column="novel_content_id" property="novelContentId"
 			jdbcType="INTEGER" />
@@ -11,41 +11,12 @@
 			jdbcType="VARCHAR" />
 	</resultMap>
 	<insert id="insert" parameterType="cui.shibing.freeread.model.NovelContent">
-		insert into novel_content (novel_content_id, novel_id, novel_chapter,
+		insert into novel_content
+		(novel_content_id, novel_id, novel_chapter,
 		novel_chapter_path)
-		values (#{novelContentId,jdbcType=INTEGER}, #{novelId,jdbcType=INTEGER},
+		values
+		(#{novelContentId,jdbcType=INTEGER}, #{novelId,jdbcType=INTEGER},
 		#{novelChapter,jdbcType=INTEGER},
 		#{novelChapterPath,jdbcType=VARCHAR})
-	</insert>
-	<insert id="insertSelective" parameterType="cui.shibing.freeread.model.NovelContent">
-		insert into novel_content
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="novelContentId != null">
-				novel_content_id,
-			</if>
-			<if test="novelId != null">
-				novel_id,
-			</if>
-			<if test="novelChapter != null">
-				novel_chapter,
-			</if>
-			<if test="novelChapterPath != null">
-				novel_chapter_path,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="novelContentId != null">
-				#{novelContentId,jdbcType=INTEGER},
-			</if>
-			<if test="novelId != null">
-				#{novelId,jdbcType=INTEGER},
-			</if>
-			<if test="novelChapter != null">
-				#{novelChapter,jdbcType=INTEGER},
-			</if>
-			<if test="novelChapterPath != null">
-				#{novelChapterPath,jdbcType=VARCHAR},
-			</if>
-		</trim>
 	</insert>
 </mapper>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cui.shibing.freeread.dao.NovelHeadMapper">
+<mapper namespace="cui.shibing.freeread.dao.NovelHeadDao">
 	<resultMap id="BaseResultMap" type="cui.shibing.freeread.model.NovelHead">
 		<id column="novel_id" property="novelId" jdbcType="INTEGER" />
 		<result column="novel_name" property="novelName" jdbcType="VARCHAR" />
@@ -46,106 +46,6 @@
 		#{novelChapterNum,jdbcType=INTEGER}, #{novelAuthor,jdbcType=INTEGER}, #{novelAccess,jdbcType=INTEGER},
 		#{novelPopularity,jdbcType=INTEGER})
 	</insert>
-	<insert id="insertSelective" parameterType="cui.shibing.freeread.model.NovelHead">
-		insert into novel_head
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="novelId != null">
-				novel_id,
-			</if>
-			<if test="novelName != null">
-				novel_name,
-			</if>
-			<if test="novelContentTableName != null">
-				novel_content_table_name,
-			</if>
-			<if test="novelContentId != null">
-				novel_content_id,
-			</if>
-			<if test="novelClass != null">
-				novel_class,
-			</if>
-			<if test="novelStatus != null">
-				novel_status,
-			</if>
-			<if test="novelChapterNum != null">
-				novel_chapter_num,
-			</if>
-			<if test="novelAuthor != null">
-				novel_author,
-			</if>
-			<if test="novelAccess != null">
-				novel_access,
-			</if>
-			<if test="novelPopularity != null">
-				novel_popularity,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="novelId != null">
-				#{novelId,jdbcType=INTEGER},
-			</if>
-			<if test="novelName != null">
-				#{novelName,jdbcType=VARCHAR},
-			</if>
-			<if test="novelContentTableName != null">
-				#{novelContentTableName,jdbcType=VARCHAR},
-			</if>
-			<if test="novelContentId != null">
-				#{novelContentId,jdbcType=INTEGER},
-			</if>
-			<if test="novelClass != null">
-				#{novelClass,jdbcType=VARCHAR},
-			</if>
-			<if test="novelStatus != null">
-				#{novelStatus,jdbcType=INTEGER},
-			</if>
-			<if test="novelChapterNum != null">
-				#{novelChapterNum,jdbcType=INTEGER},
-			</if>
-			<if test="novelAuthor != null">
-				#{novelAuthor,jdbcType=INTEGER},
-			</if>
-			<if test="novelAccess != null">
-				#{novelAccess,jdbcType=INTEGER},
-			</if>
-			<if test="novelPopularity != null">
-				#{novelPopularity,jdbcType=INTEGER},
-			</if>
-		</trim>
-	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="cui.shibing.freeread.model.NovelHead">
-		update novel_head
-		<set>
-			<if test="novelName != null">
-				novel_name = #{novelName,jdbcType=VARCHAR},
-			</if>
-			<if test="novelContentTableName != null">
-				novel_content_table_name = #{novelContentTableName,jdbcType=VARCHAR},
-			</if>
-			<if test="novelContentId != null">
-				novel_content_id = #{novelContentId,jdbcType=INTEGER},
-			</if>
-			<if test="novelClass != null">
-				novel_class = #{novelClass,jdbcType=VARCHAR},
-			</if>
-			<if test="novelStatus != null">
-				novel_status = #{novelStatus,jdbcType=INTEGER},
-			</if>
-			<if test="novelChapterNum != null">
-				novel_chapter_num = #{novelChapterNum,jdbcType=INTEGER},
-			</if>
-			<if test="novelAuthor != null">
-				novel_author = #{novelAuthor,jdbcType=INTEGER},
-			</if>
-			<if test="novelAccess != null">
-				novel_access = #{novelAccess,jdbcType=INTEGER},
-			</if>
-			<if test="novelPopularity != null">
-				novel_popularity = #{novelPopularity,jdbcType=INTEGER},
-			</if>
-		</set>
-		where novel_id = #{novelId,jdbcType=INTEGER}
-	</update>
 	<update id="updateByPrimaryKey" parameterType="cui.shibing.freeread.model.NovelHead">
 		update novel_head
 		set novel_name = #{novelName,jdbcType=VARCHAR},
