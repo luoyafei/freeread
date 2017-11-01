@@ -2,7 +2,7 @@ package cui.shibing.freeread.dao;
 
 import cui.shibing.freeread.model.NovelContent;
 
-public interface NovelContentMapper {
+public interface NovelContentDao {
     int deleteByPrimaryKey(Integer novelContentId);
 
     int insert(NovelContent record);

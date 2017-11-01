@@ -10,14 +10,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import cui.shibing.freeread.dao.NovelHeadMapper;
+import cui.shibing.freeread.dao.NovelHeadDao;
 import cui.shibing.freeread.model.NovelHead;
 
 @Service
 public class NovelHeadServiceImpl implements NovelHeadService {
 
 	@Autowired
-	private NovelHeadMapper novelHeadMapper;
+	private NovelHeadDao novelHeadMapper;
 
 	public Page<NovelHead> searchByNovelClass(String className,
 			Pageable pageable) {
@@ -26,7 +26,7 @@ public class NovelHeadServiceImpl implements NovelHeadService {
 		if (StringUtils.isEmpty(className) || pageable == null) {
 			result = Collections.emptyList();
 		} else {
-			result = novelHeadMapper.selectByNovelClass(className, pageable);
+			result = novelHeadMapper.selectNovelHeadByNovelClassName(className, pageable);
 		}
 		return new PageImpl<NovelHead>(result);
 	}
@@ -37,7 +37,7 @@ public class NovelHeadServiceImpl implements NovelHeadService {
 		if (pageable == null) {
 			result = Collections.emptyList();
 		} else {
-			result = novelHeadMapper.selectByPopularity(pageable);
+			result = novelHeadMapper.selectNovelHeadByPopularity(pageable);
 		}
 		return new PageImpl<NovelHead>(result);
 	}
@@ -48,7 +48,7 @@ public class NovelHeadServiceImpl implements NovelHeadService {
 		if (StringUtils.isEmpty(novelName) || pageable == null) {
 			result = Collections.emptyList();
 		} else {
-			result = novelHeadMapper.selectByNovelName(novelName, pageable);
+			result = novelHeadMapper.selectNovelHeadByNovelName(novelName, pageable);
 		}
 		return new PageImpl<NovelHead>(result);
 	}

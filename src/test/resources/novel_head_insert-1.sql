@@ -1,0 +1,2 @@
+insert into novel_head (novel_name,novel_picture         ,novel_content_table_name,novel_content_id,novel_class,novel_status,novel_chapter_num,novel_author,novel_access,novel_popularity) 
+values (                'zhe tian','http://www.baidu.com','content_table_1'       ,1               ,1          ,1           ,123              ,1           ,1           ,123);

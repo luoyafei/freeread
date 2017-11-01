@@ -11,7 +11,7 @@ public class NovelHead {
 
     private Integer novelContentId;
 
-    private String novelClass;
+    private Integer novelClass;
 
     private Integer novelStatus;
 
@@ -63,11 +63,11 @@ public class NovelHead {
         this.novelContentId = novelContentId;
     }
 
-    public String getNovelClass() {
+    public Integer getNovelClass() {
         return novelClass;
     }
 
-    public void setNovelClass(String novelClass) {
+    public void setNovelClass(Integer novelClass) {
         this.novelClass = novelClass;
     }
 

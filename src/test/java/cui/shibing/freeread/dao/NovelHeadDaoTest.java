@@ -15,31 +15,42 @@ import cui.shibing.freeread.model.NovelHead;
 public class NovelHeadDaoTest extends CustomDaoTest{
 	
 	@Autowired
-	private NovelHeadMapper novelHeadMapper;
+	private NovelHeadDao novelHeadMapper;
 	
 	@Test
-	public void testInsertNovelHead() {
+	public void testInsertNovelHeadSuccess() {
 		NovelHead novelHead = new NovelHead();
 		novelHead.setNovelName("novel1");
 		novelHead.setNovelContentTableName("abcd");
 		novelHead.setNovelContentId(123);
-		novelHead.setNovelClass("class1");
+		novelHead.setNovelClass(1);
 		novelHead.setNovelStatus(12);
 		novelHead.setNovelChapterNum(123);
-		assertTrue(novelHeadMapper.insert(novelHead) == 1);
+		assertTrue(novelHeadMapper.insertNovelHead(novelHead) == 1);
 	}
 	
 	@Test
-	public void testSelectByNameZero() {
+	public void testSelectNovelHeadByNameFail() {
+		executeSqlScript("novel_head_insert-1.sql",false);
 		Pageable pageable = new CustomPageable(1,5);
-		List<NovelHead> novelHeads = novelHeadMapper.selectByNovelName("aaa", pageable);
+		List<NovelHead> novelHeads = novelHeadMapper.selectNovelHeadByNovelName("1", pageable);
 		assertTrue(novelHeads.size()==0);
 	}
 	
 	@Test
-	public void testSelectByNameOne() {
+	public void testSelectNovelHeadByNameSuccess() {
+		executeSqlScript("novel_head_insert-1.sql",false);
 		Pageable pageable = new CustomPageable(1,5);
-		List<NovelHead> novelHeads = novelHeadMapper.selectByNovelName("novel1",pageable);
+		List<NovelHead> novelHeads = novelHeadMapper.selectNovelHeadByNovelName("zhe tian", pageable);
+		assertTrue(novelHeads.size()==1);
+		assertTrue(novelHeads.get(0).getNovelName().equals("zhe tian"));
+	}
+	
+	@Test
+	public void testSelectNovelHeadByClassName() {
+		//TODO:–¢Š®
+		Pageable pageable = new CustomPageable(1,5);
+		List<NovelHead> novelHeads = novelHeadMapper.selectNovelHeadByNovelName("novel1",pageable);
 		assertTrue(novelHeads.size()==1);
 	}
 	
