@@ -20,9 +20,9 @@ public interface NovelHeadMapper {
 
     int updateByPrimaryKey(NovelHead record);
     
-    List<NovelHead> selectByNovleName(@Param("novelName")String novelName,@Param("pageable")Pageable pageable);
+    List<NovelHead> selectByNovelName(@Param("novelName")String novelName,@Param("pageable")Pageable pageable);
     
-    List<NovelHead> selectByNovelClass(String novelClassName,Pageable pageable);
+    List<NovelHead> selectByNovelClass(@Param("novelClassName")String novelClassName,@Param("pageable")Pageable pageable);
     
-    List<NovelHead> selectByPopularity(Pageable pageable);
+    List<NovelHead> selectByPopularity(@Param("pageable")Pageable pageable);
 }

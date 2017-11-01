@@ -168,7 +168,7 @@
     where novel_id = #{novelId,jdbcType=INTEGER}
   </update>
   
-  <select id="selectByNovleName" resultMap="BaseResultMap">
+  <select id="selectByNovelName" resultMap="BaseResultMap">
   	select
   	novel_id, novel_name, novel_picture, novel_content_table_name, novel_content_id, 
     novel_class, novel_status, novel_chapter_num, novel_author, novel_access, novel_popularity
