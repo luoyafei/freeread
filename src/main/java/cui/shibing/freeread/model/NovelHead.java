@@ -1,7 +1,7 @@
 package cui.shibing.freeread.model;
 
 public class NovelHead {
-    private Integer novelId;
+    private String novelId;
 
     private String novelName;
 
@@ -9,105 +9,126 @@ public class NovelHead {
 
     private String novelContentTableName;
 
-    private Integer novelContentId;
+    private String novelContentId;
 
-    private Integer novelClass;
+    private Integer novelClassId1;
+    
+    private Integer novelClassId2;
+    
+    private Integer novelClassId3;
 
     private Integer novelStatus;
 
     private Integer novelChapterNum;
 
-    private Integer novelAuthor;
+    private String novelAuthor;
 
     private Integer novelAccess;
 
     private Integer novelPopularity;
 
-    public Integer getNovelId() {
-        return novelId;
-    }
+	public String getNovelId() {
+		return novelId;
+	}
 
-    public void setNovelId(Integer novelId) {
-        this.novelId = novelId;
-    }
+	public void setNovelId(String novelId) {
+		this.novelId = novelId;
+	}
 
-    public String getNovelName() {
-        return novelName;
-    }
+	public String getNovelName() {
+		return novelName;
+	}
 
-    public void setNovelName(String novelName) {
-        this.novelName = novelName;
-    }
+	public void setNovelName(String novelName) {
+		this.novelName = novelName;
+	}
 
-    public String getNovelPicture() {
-        return novelPicture;
-    }
+	public String getNovelPicture() {
+		return novelPicture;
+	}
 
-    public void setNovelPicture(String novelPicture) {
-        this.novelPicture = novelPicture;
-    }
+	public void setNovelPicture(String novelPicture) {
+		this.novelPicture = novelPicture;
+	}
 
-    public String getNovelContentTableName() {
-        return novelContentTableName;
-    }
+	public String getNovelContentTableName() {
+		return novelContentTableName;
+	}
 
-    public void setNovelContentTableName(String novelContentTableName) {
-        this.novelContentTableName = novelContentTableName;
-    }
+	public void setNovelContentTableName(String novelContentTableName) {
+		this.novelContentTableName = novelContentTableName;
+	}
 
-    public Integer getNovelContentId() {
-        return novelContentId;
-    }
+	public String getNovelContentId() {
+		return novelContentId;
+	}
 
-    public void setNovelContentId(Integer novelContentId) {
-        this.novelContentId = novelContentId;
-    }
+	public void setNovelContentId(String novelContentId) {
+		this.novelContentId = novelContentId;
+	}
 
-    public Integer getNovelClass() {
-        return novelClass;
-    }
+	public Integer getNovelClassId1() {
+		return novelClassId1;
+	}
 
-    public void setNovelClass(Integer novelClass) {
-        this.novelClass = novelClass;
-    }
+	public void setNovelClassId1(Integer novelClassId1) {
+		this.novelClassId1 = novelClassId1;
+	}
 
-    public Integer getNovelStatus() {
-        return novelStatus;
-    }
+	public Integer getNovelClassId2() {
+		return novelClassId2;
+	}
 
-    public void setNovelStatus(Integer novelStatus) {
-        this.novelStatus = novelStatus;
-    }
+	public void setNovelClassId2(Integer novelClassId2) {
+		this.novelClassId2 = novelClassId2;
+	}
 
-    public Integer getNovelChapterNum() {
-        return novelChapterNum;
-    }
+	public Integer getNovelClassId3() {
+		return novelClassId3;
+	}
 
-    public void setNovelChapterNum(Integer novelChapterNum) {
-        this.novelChapterNum = novelChapterNum;
-    }
+	public void setNovelClassId3(Integer novelClassId3) {
+		this.novelClassId3 = novelClassId3;
+	}
 
-    public Integer getNovelAuthor() {
-        return novelAuthor;
-    }
+	public Integer getNovelStatus() {
+		return novelStatus;
+	}
 
-    public void setNovelAuthor(Integer novelAuthor) {
-        this.novelAuthor = novelAuthor;
-    }
+	public void setNovelStatus(Integer novelStatus) {
+		this.novelStatus = novelStatus;
+	}
 
-    public Integer getNovelAccess() {
-        return novelAccess;
-    }
+	public Integer getNovelChapterNum() {
+		return novelChapterNum;
+	}
 
-    public void setNovelAccess(Integer novelAccess) {
-        this.novelAccess = novelAccess;
-    }
+	public void setNovelChapterNum(Integer novelChapterNum) {
+		this.novelChapterNum = novelChapterNum;
+	}
 
-    public Integer getNovelPopularity() {
-        return novelPopularity;
-    }
+	public String getNovelAuthor() {
+		return novelAuthor;
+	}
 
-    public void setNovelPopularity(Integer novelPopularity) {
-        this.novelPopularity = novelPopularity;
-    }
+	public void setNovelAuthor(String novelAuthor) {
+		this.novelAuthor = novelAuthor;
+	}
+
+	public Integer getNovelAccess() {
+		return novelAccess;
+	}
+
+	public void setNovelAccess(Integer novelAccess) {
+		this.novelAccess = novelAccess;
+	}
+
+	public Integer getNovelPopularity() {
+		return novelPopularity;
+	}
+
+	public void setNovelPopularity(Integer novelPopularity) {
+		this.novelPopularity = novelPopularity;
+	}
+
 }

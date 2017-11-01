@@ -1,17 +1,23 @@
 package cui.shibing.freeread.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.data.domain.Pageable;
+
 import cui.shibing.freeread.model.NovelContent;
 
 public interface NovelContentDao {
-    int deleteByPrimaryKey(Integer novelContentId);
+    int deleteNovelContentById(String novelContentId);
 
-    int insert(NovelContent record);
+    int insertNovelContent(NovelContent record);
 
-    int insertSelective(NovelContent record);
+    NovelContent selectNovelConentById(String novelContentId);
 
-    NovelContent selectByPrimaryKey(Integer novelContentId);
-
-    int updateByPrimaryKeySelective(NovelContent record);
-
-    int updateByPrimaryKey(NovelContent record);
+    int updateNovelContentById(NovelContent record);
+    
+    NovelContent selectNovleContentByNovelIdAndChapter(@Param("novelId")String novelId,@Param("chapterIndex")Integer chapterIndex);
+    
+    List<NovelContent> selectNovelContentByNovelId(@Param("novelId")String novelId,@Param("pageable")Pageable pageable);
+    
 }

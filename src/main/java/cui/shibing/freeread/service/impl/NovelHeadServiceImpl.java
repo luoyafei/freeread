@@ -1,4 +1,4 @@
-package cui.shibing.freeread.service;
+package cui.shibing.freeread.service.impl;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +12,7 @@ import org.springframework.util.StringUtils;
 
 import cui.shibing.freeread.dao.NovelHeadDao;
 import cui.shibing.freeread.model.NovelHead;
+import cui.shibing.freeread.service.NovelHeadService;
 
 @Service
 public class NovelHeadServiceImpl implements NovelHeadService {

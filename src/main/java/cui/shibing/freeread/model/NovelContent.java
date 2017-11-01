@@ -1,43 +1,44 @@
 package cui.shibing.freeread.model;
 
 public class NovelContent {
-    private Integer novelContentId;
+    private String novelContentId;
 
-    private Integer novelId;
+    private String novelId;
 
-    private Integer novelChapter;
+    private Integer novelChapterIndex;
 
     private String novelChapterPath;
 
-    public Integer getNovelContentId() {
-        return novelContentId;
-    }
+	public String getNovelContentId() {
+		return novelContentId;
+	}
 
-    public void setNovelContentId(Integer novelContentId) {
-        this.novelContentId = novelContentId;
-    }
+	public void setNovelContentId(String novelContentId) {
+		this.novelContentId = novelContentId;
+	}
 
-    public Integer getNovelId() {
-        return novelId;
-    }
+	public String getNovelId() {
+		return novelId;
+	}
 
-    public void setNovelId(Integer novelId) {
-        this.novelId = novelId;
-    }
+	public void setNovelId(String novelId) {
+		this.novelId = novelId;
+	}
 
-    public Integer getNovelChapter() {
-        return novelChapter;
-    }
+	public Integer getNovelChapterIndex() {
+		return novelChapterIndex;
+	}
 
-    public void setNovelChapter(Integer novelChapter) {
-        this.novelChapter = novelChapter;
-    }
+	public void setNovelChapterIndex(Integer novelChapterIndex) {
+		this.novelChapterIndex = novelChapterIndex;
+	}
 
-    public String getNovelChapterPath() {
-        return novelChapterPath;
-    }
+	public String getNovelChapterPath() {
+		return novelChapterPath;
+	}
 
-    public void setNovelChapterPath(String novelChapterPath) {
-        this.novelChapterPath = novelChapterPath;
-    }
+	public void setNovelChapterPath(String novelChapterPath) {
+		this.novelChapterPath = novelChapterPath;
+	}
+	
 }
