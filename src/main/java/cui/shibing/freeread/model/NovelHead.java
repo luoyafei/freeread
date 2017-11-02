@@ -6,6 +6,8 @@ public class NovelHead {
     private String novelName;
 
     private String novelPicture;
+    
+    private String novelDesc;
 
     private String novelContentTableName;
 
@@ -26,6 +28,14 @@ public class NovelHead {
     private Integer novelAccess;
 
     private Integer novelPopularity;
+    
+	public String getNovelDesc() {
+		return novelDesc;
+	}
+
+	public void setNovelDesc(String novelDesc) {
+		this.novelDesc = novelDesc;
+	}
 
 	public String getNovelId() {
 		return novelId;

@@ -10,12 +10,12 @@ import cui.shibing.freeread.model.NovelClass;
 import cui.shibing.freeread.service.NovelClassService;
 
 @Component
-public class HeaderHelper {
+public class PageHeaderHelperImpl implements HeaderPageHelper{
 	
 	@Autowired
 	private NovelClassService novelClassService;
-	
-	public void setNovelClasses(Model model){
+
+	public void generateHeaderPage(Model model) {
 		List<NovelClass> allNovelClass = novelClassService.getAllNovelClass();
 		model.addAttribute("allNovelClass",allNovelClass);
 	}

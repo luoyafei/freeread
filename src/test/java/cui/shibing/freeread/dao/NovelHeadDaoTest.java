@@ -104,4 +104,20 @@ public class NovelHeadDaoTest extends CustomDaoTest{
 		assertTrue(novelHeads.get(0).getNovelClassId3() == 3);
 	}
 	
+	@Test
+	public void testSelectNovelHeadByPopularity01() {
+		Pageable pageable = new CustomPageable(1,5);
+		List<NovelHead> novelHeads = novelHeadMapper.selectNovelHeadByPopularity(pageable);
+		assertTrue(novelHeads.size()==5);
+		assertTrue(novelHeads.get(0).getNovelPopularity()==128);
+		assertTrue(novelHeads.get(1).getNovelPopularity()==127);
+		assertTrue(novelHeads.get(2).getNovelPopularity()==126);
+		assertTrue(novelHeads.get(3).getNovelPopularity()==125);
+		assertTrue(novelHeads.get(4).getNovelPopularity()==124);
+		Pageable pageable1 = new CustomPageable(2,5);
+		List<NovelHead> novelHeads1 = novelHeadMapper.selectNovelHeadByPopularity(pageable1);
+		assertTrue(novelHeads1.size()==1);
+		assertTrue(novelHeads1.get(0).getNovelPopularity()==123);
+	}
+	
 }

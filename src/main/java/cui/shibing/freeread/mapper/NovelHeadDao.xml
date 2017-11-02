@@ -6,6 +6,7 @@
 		<id		column="novel_id" 					jdbcType="VARCHAR" property="novelId" />
 		<result column="novel_name" 				jdbcType="VARCHAR" property="novelName" />
 		<result column="novel_picture" 				jdbcType="VARCHAR" property="novelPicture" />
+		<result column="novel_desc"					jdbcType="VARCHAR" property="novelDesc"/>
 		<result column="novel_content_table_name" 	jdbcType="VARCHAR" property="novelContentTableName" />
 		<result column="novel_content_id" 			jdbcType="VARCHAR" property="novelContentId" />
 		<result column="novel_class_id_1" 			jdbcType="INTEGER" property="novelClassId1" />
@@ -24,6 +25,7 @@
 			novel_id,
 			novel_name, 
 			novel_picture, 
+			novel_desc,
 			novel_content_table_name,
 			novel_content_id,
 			novel_class_id_1, 
@@ -50,6 +52,7 @@
 			novel_id,
 			novel_name, 
 			novel_picture, 
+			novel_desc,
 			novel_content_table_name,
 			novel_content_id,
 			novel_class_id_1, 
@@ -65,11 +68,12 @@
 			#{novelId,              jdbcType=VARCHAR}, 
 			#{novelName,            jdbcType=VARCHAR},
 			#{novelPicture,         jdbcType=VARCHAR},
+			#{novelDesc,			jdbcType=VARCHAR},
 			#{novelContentTableName,jdbcType=VARCHAR},
 			#{novelContentId,       jdbcType=VARCHAR},
-			#{novelClassId1,        jdbcType=VARCHAR},
-			#{novelClassId2,        jdbcType=VARCHAR},
-			#{novelClassId3,        jdbcType=VARCHAR}, 
+			#{novelClassId1,        jdbcType=INTEGER},
+			#{novelClassId2,        jdbcType=INTEGER},
+			#{novelClassId3,        jdbcType=INTEGER}, 
 			#{novelStatus,          jdbcType=INTEGER}, 
 			#{novelChapterNum,      jdbcType=INTEGER},
 			#{novelAuthor,          jdbcType=VARCHAR}, 
@@ -84,6 +88,7 @@
 		set 
 			novel_name               = #{novelName,            jdbcType=VARCHAR},
 			novel_picture            = #{novelPicture,         jdbcType=VARCHAR},
+			novel_desc               = #{novelDesc,            jdbcType=VARCHAR},
 			novel_content_table_name = #{novelContentTableName,jdbcType=VARCHAR},
 			novel_content_id         = #{novelContentId,       jdbcType=VARCHAR},
 			novel_class_id_1         = #{novelClassId1,        jdbcType=INTEGER},
@@ -103,6 +108,7 @@
 			novel_id,
 			novel_name, 
 			novel_picture, 
+			novel_desc,
 			novel_content_table_name,
 			novel_content_id,
 			novel_class_id_1, 
@@ -126,6 +132,7 @@
 			nh.novel_id,
 			nh.novel_name, 
 			nh.novel_picture, 
+			nh.novel_desc,
 			nh.novel_content_table_name,
 			nh.novel_content_id,
 			nh.novel_class_id_1, 
@@ -157,7 +164,8 @@
 		select
 			novel_id,
 			novel_name, 
-			novel_picture, 
+			novel_picture,
+			novel_desc, 
 			novel_content_table_name,
 			novel_content_id,
 			novel_class_id_1, 
