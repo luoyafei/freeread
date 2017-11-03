@@ -25,4 +25,11 @@ public interface NovelHeadService {
 	 * @return 返回相应的小说
 	 * */
 	Page<NovelHead> searchByPopularity(Pageable pageable);
+	
+	/**
+	 * 根据小说Id查找小说
+	 * @param nonelId 小说Id
+	 * @return 返回相应的小说
+	 * */
+	NovelHead searchByNovelId(String novelId);
 }

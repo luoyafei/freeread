@@ -24,7 +24,7 @@ public class NovelHeadServiceImpl implements NovelHeadService {
 			Pageable pageable) {
 		List<NovelHead> result = null;
 
-		if (StringUtils.isEmpty(className) || pageable == null) {
+		if (StringUtils.isEmpty(className) || pageable == null || pageable.getPageNumber()<1) {
 			result = Collections.emptyList();
 		} else {
 			result = novelHeadMapper.selectNovelHeadByNovelClassName(className, pageable);
@@ -53,5 +53,13 @@ public class NovelHeadServiceImpl implements NovelHeadService {
 		}
 		return new PageImpl<NovelHead>(result);
 	}
+
+	public NovelHead searchByNovelId(String novelId) {
+		if(StringUtils.isEmpty(novelId))
+			return null;
+		return novelHeadMapper.selectNovelHeadByNovelId(novelId);
+	}
+	
+	
 
 }

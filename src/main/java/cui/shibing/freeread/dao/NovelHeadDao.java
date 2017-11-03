@@ -8,11 +8,11 @@ import org.springframework.data.domain.Pageable;
 import cui.shibing.freeread.model.NovelHead;
 
 public interface NovelHeadDao {
-    int deleteNovelHeadByNovelId(Integer novelId);
+    int deleteNovelHeadByNovelId(String novelId);
 
     int insertNovelHead(NovelHead record);
 
-    NovelHead selectNovelHeadByNovelId(Integer novelId);
+    NovelHead selectNovelHeadByNovelId(String novelId);
 
     int updateNovelHeadByNovelId(NovelHead record);
     
