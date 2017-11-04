@@ -9,21 +9,24 @@ import org.springframework.ui.Model;
 import cui.shibing.freeread.model.NovelHead;
 import cui.shibing.freeread.service.NovelHeadService;
 
-@Component
-public class NovelRecommendHelper {
-	private static final String PAGE = "main/recommend";
+@Component("novelRecommendHelper")
+public class NovelRecommendHelper implements PageElementHelper{
+	private static volatile String PAGE = "main/recommend";
 	@Autowired
 	private NovelHeadService novelHeadService;
 
-	public void setData(Model model,Pageable pageable) {
-		if(pageable == null) {
-			pageable = new CustomPageable(1, 20);
+	public String getPage(Model model, Object... params) {
+		if(params!=null&&params.length>0) {
+			Object param = params[0];
+			Pageable pageable = null;
+			if(param != null && param instanceof Pageable) {
+				pageable = (Pageable)param;
+			}else {
+				pageable = new CustomPageable(1, 20);
+			}
+			Page<NovelHead> recommendNovels = novelHeadService.searchByPopularity(pageable);
+			model.addAttribute("recommendNovels",recommendNovels.getContent());
 		}
-		Page<NovelHead> recommendNovels = novelHeadService.searchByPopularity(pageable);
-		model.addAttribute("recommendNovels",recommendNovels.getContent());
-	}
-
-	public String getPage() {
 		return PAGE;
 	}
 }

@@ -9,18 +9,15 @@ import org.springframework.ui.Model;
 import cui.shibing.freeread.model.NovelClass;
 import cui.shibing.freeread.service.NovelClassService;
 
-@Component
-public class NavigationHelper{
-	private static final String PAGE = "header/navigation";
+@Component("navigationHelper")
+public class NavigationHelper implements PageElementHelper{
+	private static volatile String PAGE = "header/navigation";
 	@Autowired
 	private NovelClassService novelClassService;
 
-	public void setData(Model model) {
+	public String getPage(Model model, Object... params) {
 		List<NovelClass> allNovelClass = novelClassService.getAllNovelClass();
 		model.addAttribute("allNovelClass",allNovelClass);
-	}
-
-	public String getPage() {
 		return PAGE;
 	}
 	
