@@ -11,22 +11,17 @@ import cui.shibing.freeread.service.NovelClassService;
 
 @Component
 public class NavigationHelper{
-	public static volatile String HEAD_PAGE = "header/navigation";
+	private static final String PAGE = "header/navigation";
 	@Autowired
 	private NovelClassService novelClassService;
 
-	public void generateHeaderData(Model model) {
+	public void setData(Model model) {
 		List<NovelClass> allNovelClass = novelClassService.getAllNovelClass();
 		model.addAttribute("allNovelClass",allNovelClass);
 	}
 
-	public String generateHeaderPage(Model model) {
-		this.generateHeaderData(model);
-		return HEAD_PAGE;
-	}
-
-	public void setHeadPage(String headPage) {
-		HEAD_PAGE = headPage;
+	public String getPage() {
+		return PAGE;
 	}
 	
 }
